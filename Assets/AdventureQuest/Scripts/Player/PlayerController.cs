@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Scripts.Layer;
-
+using Scripts.UI.PlayerAttributes;
 
 namespace Scripts.Player
 {
@@ -38,14 +38,23 @@ namespace Scripts.Player
 
         public bool isAttacking = false;
         private bool win_Game = false;
-
+        public PlayerLife _playerife;
+        public PlayerEnergy _playerEnergy;
         void Start()
         {
             player_rb = GetComponent<Rigidbody2D>();
             player_anim = GetComponent<PlayerAnimation>();
             _groundChecker = GetComponent<GroundChecker>();
-          
+            if(_playerife == null)
+            {
+                _playerife = GameObject.FindGameObjectWithTag("lifeUI").GetComponent<PlayerLife>();
+            }
+            if (_playerEnergy == null)
+            {
+                _playerEnergy = GameObject.FindGameObjectWithTag("energyUI").GetComponent<PlayerEnergy>();
+            }
            
+
         }
 
 
@@ -60,8 +69,8 @@ namespace Scripts.Player
             MovementAnimation();
             InputAttack();
             WinGameCheck();
-          
-            
+           
+
         }
 
       private void WinGameCheck()
@@ -174,6 +183,23 @@ namespace Scripts.Player
                 jump_time_counter -= Time.deltaTime;
             }
 
+        }
+
+        public void OnCollisionEnter2D(Collision2D collision)
+        {
+            int damage, life;
+            if (collision.gameObject.CompareTag("enemy"))
+            {
+                 damage = 1;
+                _playerife.TakeDamage(damage);
+                
+            }
+
+            if (collision.gameObject.CompareTag("smallHeart"))
+            {
+                 life = 1;
+                _playerife.GainLife(life);
+            }
         }
 
 

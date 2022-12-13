@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 namespace Scripts.GameSystem
 {
     public class CoinsManager : MonoBehaviour
     {
         [Header("Object Coins with comp Text: ")]
         [Space]
-        public Text coins_text;
+        public TextMeshProUGUI coins_text;
         private int coins_number;
  
         private void Start()
@@ -22,7 +23,7 @@ namespace Scripts.GameSystem
         {
             if(coins_text == null)
             {
-                coins_text = GameObject.FindGameObjectWithTag("levelCoins").GetComponent<Text>();
+                coins_text = GameObject.FindGameObjectWithTag("levelCoins").GetComponent<TextMeshProUGUI>();
             }
            
         }
@@ -32,14 +33,20 @@ namespace Scripts.GameSystem
         public void StartDefaultSettings()
         {
             coins_number = 0;
-            coins_text.text = coins_number.ToString();
+            coins_text.SetText(coins_number.ToString());           
         }
         public void UpdateCoinsOnGame()
         {
              coins_number += 1;
 
-              coins_text.text = coins_number.ToString();
+            coins_text.SetText(coins_number.ToString());
            
+        }
+
+        public void SpendCoins(int spend)
+        {
+            coins_number -= spend;
+            coins_text.SetText(coins_number.ToString());
         }
 
         

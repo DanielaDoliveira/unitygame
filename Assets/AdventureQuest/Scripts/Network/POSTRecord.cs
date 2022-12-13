@@ -21,7 +21,7 @@ namespace Scripts.Network
             
            
         }
-        public IEnumerator PostRecord(User userData, string username,int record)
+        public IEnumerator PutRecord(User userData, string username,int record)
         {
 
 
@@ -31,7 +31,7 @@ namespace Scripts.Network
             string jsonData = JsonUtility.ToJson(userData);
 
 
-            using (UnityWebRequest www = UnityWebRequest.Post(urlNew,jsonData))
+            using (UnityWebRequest www = UnityWebRequest.Put(urlNew,jsonData))
             {
                 www.SetRequestHeader("content-type", "application/json");
                 www.SetRequestHeader("Access-Control-Allow-Origin", "*");

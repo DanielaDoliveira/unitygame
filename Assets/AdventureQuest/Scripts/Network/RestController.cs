@@ -8,9 +8,9 @@ namespace Scripts.Network
 {
     public class RestController : MonoBehaviour
     {
-        protected string WEB_URL = "https://projinyi3.herokuapp.com";
+        protected string WEB_URL = "http://localhost:3333";
         protected string ROUTE_RANKING_BOARD = "/ranking";
-        protected string ROUTE_REGISTER_POINTS = "/postrecord";
+        protected string ROUTE_REGISTER_POINTS = "/user/rankup";
 
 
 

@@ -32,7 +32,7 @@ public class ReturnToIntro : MonoBehaviour
         
                 string user_name = inputField.text;
                 User u = new User();
-                StartCoroutine(_postRecord.PostRecord(u, user_name, PlayerPrefs.GetInt("RECORD")));
+                StartCoroutine(_postRecord.PutRecord(u, user_name, PlayerPrefs.GetInt("RECORD")));
             
         }
         else

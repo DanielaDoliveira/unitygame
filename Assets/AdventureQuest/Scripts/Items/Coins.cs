@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Scripts.GameSystem;
-
+using TMPro;
 
 namespace Scripts.Items
 {

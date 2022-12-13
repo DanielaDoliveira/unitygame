@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using TMPro;
 
 namespace Scripts.GameSystem
 {
@@ -13,7 +13,7 @@ namespace Scripts.GameSystem
         public Text record_text; 
         [Header("Text with points: ")]
         [Space]
-        public Text points_txt;
+        public TextMeshProUGUI points_txt;
         public DataManager _dataManager;
 
 
@@ -30,14 +30,15 @@ namespace Scripts.GameSystem
         {
             if(points_txt == null)
             {
-                GameObject.FindGameObjectWithTag("levelPoints").GetComponent<Text>();
+                GameObject.FindGameObjectWithTag("levelPoints").GetComponent<TextMeshProUGUI>();
             }
         }
 
        
         void UpdatePointsOnScreen()
         {
-            points_txt.text = points_number.ToString();
+            points_txt.SetText(points_number.ToString());
+        
 
         }
 
