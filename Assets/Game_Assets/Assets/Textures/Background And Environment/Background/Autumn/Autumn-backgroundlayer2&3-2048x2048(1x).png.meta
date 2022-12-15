@@ -319,13 +319,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Autumn-backgroundlayer2&3-2048x2048(1x)_0: 21300000
+      Autumn-backgroundlayer2&3-2048x2048(1x)_3: 21300006
       Autumn-backgroundlayer2&3-2048x2048(1x)_5: 21300010
       Autumn-backgroundlayer2&3-2048x2048(1x)_2: 21300004
       Autumn-backgroundlayer2&3-2048x2048(1x)_1: 21300002
       Autumn-backgroundlayer2&3-2048x2048(1x)_4: 21300008
       Autumn-backgroundlayer2&3-2048x2048(1x)_6: 21300012
-      Autumn-backgroundlayer2&3-2048x2048(1x)_3: 21300006
+      Autumn-backgroundlayer2&3-2048x2048(1x)_0: 21300000
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

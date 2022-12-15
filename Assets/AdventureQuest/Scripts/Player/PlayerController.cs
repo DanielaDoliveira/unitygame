@@ -142,7 +142,7 @@ namespace Scripts.Player
         void InputJump()
         {
          
-            if (is_Grounded && Input.GetKeyDown(KeyCode.Space) && !win_Game)
+            if (is_Grounded && Input.GetKeyDown(KeyCode.Space) && !win_Game && !isAttacking)
             {
                 is_Jumping = true;
                 player_anim.SetJumpAnimation();

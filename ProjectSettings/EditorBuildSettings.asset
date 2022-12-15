@@ -6,8 +6,17 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/AdventureQuest/Scenes/SplashScreen 1.unity
+    guid: a371480b2f72f485aa5fe7f0e6e7175c
+  - enabled: 1
+    path: Assets/AdventureQuest/Scenes/SplashScreen.unity
+    guid: ab0933c98ff8e44e1a5e664296d5ae4b
+  - enabled: 1
     path: Assets/AdventureQuest/Scenes/IntroGame.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/AdventureQuest/Scenes/Level 02.unity
+    guid: b933c9c09734a427891c3c03b326686e
   - enabled: 1
     path: Assets/AdventureQuest/Scenes/Level 01.unity
     guid: 57c937c07f37f434baeb68db618a5ec3

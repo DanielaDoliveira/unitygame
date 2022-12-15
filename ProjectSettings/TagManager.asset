@@ -12,6 +12,15 @@ TagManager:
   - levelCoins
   - levelPoints
   - vision
+  - lifeUI
+  - enemy
+  - smallHeart
+  - energyUI
+  - 'New '
+  - Enemy
+  - obstacle
+  - spike
+  - level
   layers:
   - Default
   - TransparentFX
@@ -23,9 +32,9 @@ TagManager:
   - Goal
   - Action
   - en
-  - 
-  - 
-  - 
+  - obstacle
+  - Enemy
+  - sword
   - 
   - 
   - 
@@ -46,6 +55,12 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: platform
+    uniqueID: 622425639
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: spike
+    uniqueID: 1556934117
     locked: 0

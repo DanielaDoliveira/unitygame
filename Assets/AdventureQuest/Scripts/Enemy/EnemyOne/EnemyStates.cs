@@ -4,8 +4,7 @@ using UnityEngine;
 
 namespace Scripts.Enemy
 {
-    [RequireComponent(typeof(Rigidbody2D))]
-
+  
     public class EnemyStates : MonoBehaviour
     {
 
@@ -16,21 +15,24 @@ namespace Scripts.Enemy
 
        [SerializeField] private float move_speed;
 
-       private Rigidbody2D rb_2d;
+       [SerializeField]private Rigidbody2D rb_2d;
 
         private EnemyAnimations _enemyAnimations;
         public Transform vision;
+
+        
         
         void Start()
-        { 
-            rb_2d = GetComponent<Rigidbody2D>();
-            _enemyAnimations = GetComponent<EnemyAnimations>();
+        {
+           
+            _enemyAnimations = GetComponentInChildren<EnemyAnimations>();
             GetPlayer();
            
         }
 
         void GetPlayer()
         {
+            
             if(player == null)
             {
                 player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
@@ -42,11 +44,11 @@ namespace Scripts.Enemy
         
         void Update()
         {
-            EnemyDistance();
+            
         }
 
         
-        void EnemyDistance()
+     public   void EnemyDistance()
         {
          
 
@@ -61,27 +63,40 @@ namespace Scripts.Enemy
 
         }
 
-        void ChasePlayer()
+      public  void ChasePlayer()
         {
+
+         //   _enemyAnimations.Run();
+            if (transform.position.x > player.position.x)
+            {
+                Debug.Log("Move left <-");
+                // rb_2d.velocity = new Vector2(-1 * move_speed * Time.deltaTime, 0);
+                transform.position += Vector3.MoveTowards(transform.position, player.position, 0.5f);
+            }
             if (transform.position.x < player.position.x)
             {
-                rb_2d.velocity = new Vector2(-move_speed*Time.deltaTime, 0);
-                transform.localScale = new Vector2(-1, 1);
-            }
-            else
-            {
-                rb_2d.velocity = new Vector2(+move_speed*Time.deltaTime, 0);
-                transform.localScale = new Vector2(1, 1);
+                Debug.Log("Move Right ->");
+                transform.position += Vector3.right * move_speed * Time.deltaTime;
             }
 
-            _enemyAnimations.Run();
+
+            else
+            {
+                
+                rb_2d.velocity = new Vector2(+move_speed*Time.deltaTime, 0);
+                transform.localScale = new Vector2(1, 1);
+
+            }
+
+           
 
         }
 
-        void StopChasingPlayer()
+       public void StopChasingPlayer()
         {
+//_enemyAnimations.Idle();
             rb_2d.velocity = Vector2.zero;
-            _enemyAnimations.Idle();
+           
 
         }
 
